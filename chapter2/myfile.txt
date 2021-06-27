@@ -1,0 +1,3 @@
+Hello.
+This is my text file.
+Used for testing.
