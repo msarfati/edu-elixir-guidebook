@@ -58,12 +58,6 @@ defmodule Metex.Worker do
     GenServer.cast(@name, :stop)
   end
 
-  def terminate(reason, stats) do
-    IO.puts "server terminated because of '#{inspect reason}'"
-      inspect stats
-    :ok
-  end
-
   ## Server Callbacks
 
   def init(:ok) do
@@ -96,6 +90,12 @@ defmodule Metex.Worker do
   def handle_info(msg, stats) do
     IO.puts("received #{inspect msg}")
     {:noreply, stats}
+  end
+
+  def terminate(reason, stats) do
+    IO.puts "server terminated because of '#{inspect reason}'"
+    inspect stats
+    :ok
   end
 
   ## Helper functions
